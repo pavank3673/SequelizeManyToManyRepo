@@ -51,3 +51,20 @@ export const getGroup = async (req, res, next) => {
     });
   }
 };
+
+export const toggleActiveGroup = async (req, res, next) => {
+  try {
+    const group = await groupService.getGroup(req.params.id);
+    const data = await groupService.toggleActiveGroup(group);
+    res.status(HttpStatus.CREATED).json({
+      code: HttpStatus.CREATED,
+      data: data,
+      message: 'Group status updated successfully'
+    });
+  } catch (error) {
+    res.status(HttpStatus.BAD_REQUEST).json({
+      code: HttpStatus.BAD_REQUEST,
+      message: `${error}`
+    });
+  }
+};

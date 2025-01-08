@@ -10,4 +10,6 @@ router.put('/:id', groupController.addUserToGroup);
 
 router.get('/:id', groupController.getGroup);
 
+router.patch('/:id', groupController.toggleActiveGroup);
+
 export default router;
