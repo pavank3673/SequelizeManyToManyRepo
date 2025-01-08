@@ -6,4 +6,6 @@ const router = express.Router();
 
 router.post('', newUserValidator, userController.newUser);
 
+router.get('/:id', userController.getUser);
+
 export default router;
