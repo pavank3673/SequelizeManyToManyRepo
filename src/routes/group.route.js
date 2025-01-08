@@ -6,4 +6,6 @@ const router = express.Router();
 
 router.post('', newGroupValidator, groupController.newGroup);
 
+router.put('/:id', groupController.addUserToGroup);
+
 export default router;
