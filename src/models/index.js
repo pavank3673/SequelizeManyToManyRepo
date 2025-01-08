@@ -43,11 +43,24 @@ const UserGroups = sequelize.define(
   }
 );
 
+const Address = sequelize.define('address', {
+  addressId: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+  addressType: DataTypes.STRING,
+  details: DataTypes.STRING
+});
+
+Address.belongsTo(User, { as: ' ' });
 User.belongsToMany(Group, { through: UserGroups });
 Group.belongsToMany(User, { through: UserGroups });
+
 
 module.exports = {
   User,
   Group,
-  UserGroups
+  UserGroups,
+  Address
 };

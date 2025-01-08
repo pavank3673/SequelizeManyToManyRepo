@@ -3,6 +3,7 @@ const router = express.Router();
 
 import userRoute from './user.route';
 import groupRoute from './group.route';
+import addressRoute from './address.route';
 
 const routes = () => {
   router.get('/', (req, res) => {
@@ -10,6 +11,7 @@ const routes = () => {
   });
   router.use('/users', userRoute);
   router.use('/groups', groupRoute);
+  router.use('/address', addressRoute);
 
   return router;
 };
