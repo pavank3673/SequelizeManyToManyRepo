@@ -35,3 +35,19 @@ export const addUserToGroup = async (req, res, next) => {
     });
   }
 };
+
+export const getGroup = async (req, res, next) => {
+  try {
+    const data = await groupService.getGroup(req.params.id);
+    res.status(HttpStatus.OK).json({
+      code: HttpStatus.OK,
+      data: data,
+      message: 'Group found successfully'
+    });
+  } catch (error) {
+    res.status(HttpStatus.NOT_FOUND).json({
+      code: HttpStatus.NOT_FOUND,
+      message: `${error}`
+    });
+  }
+};
