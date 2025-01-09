@@ -1,4 +1,4 @@
-import { User } from '../models/index';
+import { User, Group, UserGroups } from '../models/index';
 
 export const newUser = async (body) => {
   const data = await User.create(body);
